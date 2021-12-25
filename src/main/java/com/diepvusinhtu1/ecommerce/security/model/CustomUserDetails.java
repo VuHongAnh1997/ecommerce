@@ -1,7 +1,7 @@
 package com.diepvusinhtu1.ecommerce.security.model;
 
 import com.diepvusinhtu1.ecommerce.entity.User;
-import lombok.*;
+import com.fasterxml.jackson.annotation.*;
 import org.springframework.security.core.*;
 import org.springframework.security.core.authority.*;
 import org.springframework.security.core.userdetails.*;
@@ -16,6 +16,7 @@ public class CustomUserDetails implements UserDetails {
         this.user = user;
     }
 
+    @JsonIgnore
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();

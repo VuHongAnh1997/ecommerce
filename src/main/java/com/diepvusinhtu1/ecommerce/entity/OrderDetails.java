@@ -1,14 +1,10 @@
 package com.diepvusinhtu1.ecommerce.entity;
 
-import lombok.*;
-
 import javax.persistence.*;
 import java.math.*;
 
 @Entity
 @Table(name = "order_details")
-@Data
-@NoArgsConstructor
 public class OrderDetails {
 
     @Id

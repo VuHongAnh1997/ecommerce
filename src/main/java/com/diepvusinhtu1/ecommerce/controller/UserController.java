@@ -1,9 +1,11 @@
 package com.diepvusinhtu1.ecommerce.controller;
 
 import com.diepvusinhtu1.ecommerce.entity.*;
-import com.diepvusinhtu1.ecommerce.repository.*;
 import com.diepvusinhtu1.ecommerce.security.jwt.*;
 import com.diepvusinhtu1.ecommerce.security.model.*;
+import com.diepvusinhtu1.ecommerce.service.*;
+import com.diepvusinhtu1.ecommerce.service.dto.*;
+import com.diepvusinhtu1.ecommerce.service.mapper.*;
 import org.springframework.http.*;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.*;
@@ -11,7 +13,7 @@ import org.springframework.security.core.context.*;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.*;
-import java.util.*;
+import java.security.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -19,13 +21,10 @@ public class UserController {
 
     private final AuthenticationManager authenticationManager;
 
-    private final UserRepository userRepository;
-
     private final JwtTokenProvider tokenProvider;
 
-    public UserController(AuthenticationManager authenticationManager, UserRepository userRepository, JwtTokenProvider tokenProvider) {
+    public UserController(AuthenticationManager authenticationManager, JwtTokenProvider tokenProvider) {
         this.authenticationManager = authenticationManager;
-        this.userRepository = userRepository;
         this.tokenProvider = tokenProvider;
     }
 
@@ -49,9 +48,12 @@ public class UserController {
         return new LoginResponse(jwt);
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<User>> getAll() {
-        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+    @GetMapping("/current-user")
+    public ResponseEntity<User> getCurrentUser(Principal principal) {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+        return new ResponseEntity<>(userDetails.getUser(), HttpStatus.OK);
     }
 
 }

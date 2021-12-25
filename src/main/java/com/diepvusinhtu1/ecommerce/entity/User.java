@@ -1,6 +1,6 @@
 package com.diepvusinhtu1.ecommerce.entity;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.time.*;
@@ -26,6 +26,7 @@ public class User {
     @Column
     private String address;
 
+    @JsonIgnore
     @Column
     private String password;
 
@@ -41,6 +42,7 @@ public class User {
     @Column
     private Integer deleted;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Orders> orders = new HashSet<>();
 

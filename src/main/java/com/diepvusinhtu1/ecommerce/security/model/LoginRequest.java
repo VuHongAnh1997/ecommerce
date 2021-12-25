@@ -1,7 +1,5 @@
 package com.diepvusinhtu1.ecommerce.security.model;
 
-import lombok.*;
-
 import javax.validation.constraints.*;
 
 public class LoginRequest {

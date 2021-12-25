@@ -1,7 +1,5 @@
 package com.diepvusinhtu1.ecommerce.entity;
 
-import lombok.*;
-
 import javax.persistence.*;
 
 @Entity

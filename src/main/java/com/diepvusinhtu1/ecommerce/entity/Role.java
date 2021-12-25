@@ -1,7 +1,5 @@
 package com.diepvusinhtu1.ecommerce.entity;
 
-import lombok.*;
-
 import javax.persistence.*;
 
 @Entity
@@ -14,7 +12,6 @@ public class Role {
 
     @Column
     private String name;
-
 
     public Role() {
     }

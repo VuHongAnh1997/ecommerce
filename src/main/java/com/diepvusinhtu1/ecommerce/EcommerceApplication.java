@@ -29,15 +29,15 @@ public class EcommerceApplication {
 		SpringApplication.run(EcommerceApplication.class, args);
 	}
 
-//    @Bean
-//    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-//        return args -> {
-//
+    @Bean
+    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+        return args -> {
+
 //            Optional<Role> role = roleRepository.findById(1L);
 //            User user = new User();
 //            user.setRole(role.get());
 //            user.setUpdatedAt(new Date().toInstant());
-//            user.setFullName("Vũ Hồng ");
+//            user.setFullName("Vũ Hồng Anh");
 //            user.setEmail("diepvusinhtu1@gmail.com");
 //            user.setDeleted(0);
 //            user.setAddress("47 Vũ Trọng Phụng");
@@ -46,23 +46,22 @@ public class EcommerceApplication {
 //            user.setUsername("0392707516");
 //            user.setId(1L);
 //            userRepository.save(user);
-//
-//
-//            Optional<Role> role1 = roleRepository.findById(2L);
-//            User user1 = new User();
-//            user1.setRole(role1.get());
-//            user1.setUpdatedAt(new Date().toInstant());
-//            user1.setFullName("Lê Diệu Linh");
-//            user1.setEmail("toke@gmail.com");
-//            user1.setDeleted(0);
-//            user1.setAddress("Tố Hữu");
-//            user1.setPassword(passwordEncoder.encode("toke98"));
-//            user1.setCreatedAt(new Date().toInstant());
-//            user1.setUsername("0392707523");
-//            user1.setId(2L);
-//            userRepository.save(user1);
-//        };
-//    }
+
+//            Optional<Role> role = roleRepository.findById(2L);
+//            User user = new User();
+//            user.setRole(role.get());
+//            user.setUpdatedAt(new Date().toInstant());
+//            user.setFullName("Nguyễn Hương Thảo");
+//            user.setEmail("vuhonganh250797@gmail.com");
+//            user.setDeleted(0);
+//            user.setAddress("Phạm Ngọc Thạch");
+//            user.setPassword(passwordEncoder.encode("anhyeuem"));
+//            user.setCreatedAt(new Date().toInstant());
+//            user.setUsername("0392707514");
+//            user.setId(2L);
+//            userRepository.save(user);
+        };
+    }
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {

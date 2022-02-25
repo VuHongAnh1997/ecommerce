@@ -31,21 +31,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder()
-    {
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
-            .authorizeRequests()
-            .antMatchers("/api/category").hasAuthority("ROLE_ADMIN")
-            .antMatchers("/api/user").hasAuthority("ROLE_ADMIN")
-            .antMatchers("/api/user/login").permitAll()
-            .anyRequest().authenticated();
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers("/api/category").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/api/user").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/api/user/login").permitAll().antMatchers("/api/category/by-menu-path").permitAll()
+                .anyRequest().authenticated();
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }

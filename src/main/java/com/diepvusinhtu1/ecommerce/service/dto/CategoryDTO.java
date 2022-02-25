@@ -10,14 +10,20 @@ public class CategoryDTO {
 
     private String imageUrl;
 
+    private Long parentId;
+
+    private Long menuPath;
+
     public CategoryDTO() {
     }
 
-    public CategoryDTO(Long id, String categoryName, String description, String imageUrl) {
+    public CategoryDTO(Long id, String categoryName, String description, String imageUrl, Long parentId, Long menuPath) {
         this.id = id;
         this.categoryName = categoryName;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.parentId = parentId;
+        this.menuPath = menuPath;
     }
 
     public Long getId() {
@@ -50,6 +56,22 @@ public class CategoryDTO {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
+
+    public Long getMenuPath() {
+        return menuPath;
+    }
+
+    public void setMenuPath(Long menuPath) {
+        this.menuPath = menuPath;
     }
 }
 

@@ -42,4 +42,8 @@ public class CategoryService {
             categoryRepository.save(category);
         }
     }
+
+    public List<Category> findCategoriesByMenuPath(Long menuPath) {
+        return categoryRepository.findByMenuPath(menuPath);
+    }
 }

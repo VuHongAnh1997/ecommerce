@@ -18,15 +18,21 @@ public class Category {
 
     private @NotBlank String imageUrl;
 
+    @Column(name = "parent_id")
+    private Long parentId;
+
+    @Column(name = "menu_path")
+    private Long menuPath;
 
     public Category() {
     }
 
-    public Category(Long id, @NotBlank String categoryName, @NotBlank String description, @NotBlank String imageUrl) {
+    public Category(Long id, @NotBlank String categoryName, @NotBlank String description, @NotBlank String imageUrl, Long parentId) {
         this.id = id;
         this.categoryName = categoryName;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.parentId = parentId;
     }
 
     public Long getId() {
@@ -59,5 +65,21 @@ public class Category {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
+
+    public Long getMenuPath() {
+        return menuPath;
+    }
+
+    public void setMenuPath(Long menuPath) {
+        this.menuPath = menuPath;
     }
 }

@@ -45,4 +45,11 @@ public class CategoryController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("/by-menu-path")
+    public ResponseEntity<List<CategoryDTO>> getCategoriesByMenuPath(@RequestParam("menuPath") Long menuPath) {
+        List<CategoryDTO> categoryDTOList;
+        categoryDTOList = categoryMapper.toDtoList(categoryService.findCategoriesByMenuPath(menuPath));
+        return new ResponseEntity<>(categoryDTOList, HttpStatus.OK);
+    }
 }

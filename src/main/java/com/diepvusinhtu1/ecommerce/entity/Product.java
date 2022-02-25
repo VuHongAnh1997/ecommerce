@@ -37,6 +37,9 @@ public class Product {
     @Column
     private Integer deleted;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @OneToMany(targetEntity = Galery.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "cp_fk", referencedColumnName = "id")
     private List<Galery> galerySet;
@@ -122,5 +125,13 @@ public class Product {
 
     public void setGalerySet(List<Galery> galerySet) {
         this.galerySet = galerySet;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

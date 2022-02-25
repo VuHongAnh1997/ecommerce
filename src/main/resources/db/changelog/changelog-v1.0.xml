@@ -8,13 +8,12 @@
   http://www.liquibase.org/xml/ns/pro
   http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
 
-    <changeSet author="liquibase-docs" id="addColumn-example">
-        <addColumn catalogName="cat"
-                   schemaName="public"
-                   tableName="menu">
-            <column name="role_id"
-                    position="2"
-                    type="bigint"/>
-        </addColumn>
-    </changeSet>
+<!--    <changeSet author="liquibase-docs" id="addColumn-example">-->
+<!--        <addColumn schemaName="ecommerce"-->
+<!--                   tableName="product">-->
+<!--            <column name="image_url"-->
+<!--                    position="8"-->
+<!--                    type="varchar(255)"/>-->
+<!--        </addColumn>-->
+<!--    </changeSet>-->
 </databaseChangeLog>
